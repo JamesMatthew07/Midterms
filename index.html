@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <title>Rolex Philippines</title>
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    main {
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y proximity;
+    }
+
+    main>section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+
+    .pic {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .mLogo {
+        height: auto;
+        animation: fadeIn 3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            margin-bottom: 50px;
+        }
+
+        to {
+            opacity: 1;
+            margin-bottom: 0;
+        }
+    }
+
+    .scrollable-section {
+        overflow-y: auto;
+        height: 100%;
+        padding: auto;
+
+    }
+
+    .infoText,
+    .infoText3 {
+        width: 700px;
+        height: auto;
+        position: relative;
+        color: aliceblue;
+        font-size: 25px;
+        text-align: center;
+        float: left;
+        margin-top: 80px;
+        margin-left: 50px;
+    }
+
+    .infoText3 {
+        margin-top: 350px;
+    }
+
+    .infoText2,
+    .infoText4 {
+        width: 700px;
+        height: auto;
+        position: relative;
+        color: aliceblue;
+        font-size: 25px;
+        text-align: center;
+        float: right;
+        margin-top: 400px;
+        padding-right: 20px;
+    }
+
+    .infoText4 {
+        margin-top: 400px;
+        padding-bottom: 80px;
+    }
+
+    .vid-container {
+        position: absolute;
+        left: 900px;
+        bottom: 15px;
+    }
+
+    .vid-container2 {
+        position: absolute;
+        left: 900px;
+        top: 8px;
+    }
+
+    .rolex1 img {
+        position: absolute;
+        width: 70%;
+        height: auto;
+        top: 50%;
+        left: -80%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+    }
+
+    .rolex2 img {
+        position: absolute;
+        width: 50%;
+        height: auto;
+        top: 50%;
+        left: -40%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+    }
+
+    .rolex3 img {
+        position: absolute;
+        width: 70%;
+        height: auto;
+        top: 50%;
+        left: -80%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+    }
+
+    .rolex4 img {
+        position: absolute;
+        width: 50%;
+        height: auto;
+        top: 50%;
+        left: -40%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+    }
+
+    .section2 {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        background-image: url(black.jpg);
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .products {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background-color: #141414;
+        margin: 0rem;
+        overflow: hidden;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    #image-track {
+        display: flex;
+        gap: 10px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-10%, -50%);
+    }
+
+    #image-track>.image {
+        width: 50vmin;
+        height: 59vmin;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 10%;
+    }
+
+    .endPage,
+    .landingPage {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .endPage {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .endVid,
+    .bgVideo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .ePic,
+    .mPic {
+        position: relative;
+        z-index: 1;
+        bottom: 70px;
+    }
+
+    .eLogo,
+    .mLogo {
+        height: 400px;
+        width: auto;
+    }
+
+    .etxt {
+        position: absolute;
+        color: antiquewhite;
+        font-size: 40px;
+        bottom: 160px;
+    }
+
+    .section {
+        height: 100vh;
+    }
+
+
+    .nav {
+        --nav-gap: 15px;
+        padding: var(--nav-gap);
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .nav-item {
+        align-items: center;
+        display: flex;
+        flex-direction: row-reverse;
+        margin-bottom: var(--nav-gap);
+    }
+
+
+    .nav-label {
+        color: white;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 0.1s;
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+    }
+
+    .nav-link {
+        background: white;
+        border-radius: 50%;
+        height: var(--nav-gap);
+        margin-left: var(--nav-gap);
+        transition: transform 0.1s;
+        width: var(--nav-gap);
+    }
+
+    .nav-link-selected {
+        background: #0b3e27;
+        transform: scale(1.4);
+    }
+
+.textt{
+    font-family:'Times New Roman', Times, serif;
+}
+    /* @media (max-width: 2000px) {
+       .rolex1 {
+            position: relative;
+            bottom: 950px;
+            left: 500px;
+            margin-right: 100px;
+            overflow: hidden; 
+        }
+        .rolex2 {
+            position: relative;
+            overflow: hidden; 
+            bottom: 1600px;
+        }
+        .text
+        {
+            font-size: 25px;
+        }
+    } */
+    /* @media (max-width: 1700px) {
+       .rolex1 {
+            position: relative;
+            bottom: 1000px;
+            left: 350px;
+            overflow: hidden; 
+        }
+        .text
+        {
+            font-size: 25px;
+        }
+    } */
+    /* @media (max-width: 1650px) {
+       .rolex1 {
+            opacity: 0;
+        }
+
+        .text
+        {
+            font-size: 25px;
+        }
+    } */
+    
+    @media (max-width: 1470px) {
+        .infoText2, .infoText3, .infoText4{
+            margin-top: 5%;
+        }
+    }
+    @media (max-width: 1445px) {
+        .vid-container video, .vid-container2 video {
+            position: relative;
+            display: block; 
+            right: 150px;
+            border: 2px solid white;
+            overflow: hidden;
+        }
+    }
+    @media (max-width: 1325px) {
+        .image-container img, .image-container2 img {
+            margin-left:100px ;
+        }
+    }
+    @media (max-width: 1120px) {
+        .vid-container video {
+            display: none;
+        }
+        .textt{
+            position: relative;
+        }
+        .rolex1 img, .rolex3 img{
+            position: relative;
+            display: block;
+            left: 450px;
+            bottom: 500px;
+            
+        }
+        .rolex2 img, .rolex4 img{
+            position: relative;
+            display: block;
+            /* left: 20px; */
+            bottom: 480px;
+    }
+    .infoText3, .infoText4{
+            position: relative;
+            display: block;
+            bottom: 60%;
+        }
+        .infoText4{
+            margin-bottom: -100%;
+            /* border: 5px solid white; */
+        }
+        .image-container2{
+            position: absolute;
+            margin-bottom: -100%;   
+        }
+        .vid-container2 video {
+            position: relative;
+            display: block; 
+            right: 650px;
+            top: 800px;
+        }
+    }
+        @media (max-width: 1010px) {
+            .rolex1 img, .rolex3 img{
+            position: relative;
+            display: block;
+            left: 500px;
+            bottom: 500px;
+            
+        }
+    
+        .rolex2 img, .rolex4 img{
+            position: relative;
+            display: block;
+            left: -250px;
+            bottom: 480px;
+    }
+}
+@media (max-width: 900px) {
+            .rolex1 img, .rolex3 img{
+            opacity: 0;
+        }
+    
+        .rolex2 img, .rolex4 img{
+            opacity: 0;
+    }
+}
+@media (max-width: 780px) {
+    .vid-container2 video {
+            opacity: 0;
+        }
+}
+    @media (max-width: 1024px) {
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .mLogo {
+            display: block;
+            position: relative;
+            bottom: 300px;
+            height: 300px;
+            width: auto;
+            top: 70px;
+            overflow: hidden;
+        }
+
+        .logo {
+            display: block;
+            position: relative;
+            bottom: 10px;
+        }
+
+        /* .text {
+            position: relative;
+            width: 60%;
+            height: auto;
+            padding-top: 200px;
+            text-align: center;
+            margin: auto;
+            padding-left: 15px;
+            font-size: 23px;
+        }
+
+        .rolex1,
+        .rolex2 {
+            opacity: 0;
+            animation: none;
+        } */
+
+        .infoText3, .infoText4{
+            width: 650px;
+            height: auto;
+            font-size: 20px;
+            margin-left: 0%;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .infoText3{
+            width: 650px;
+            height: auto;
+            font-size: 20px;
+            margin-left: 0%;
+            margin-top: -18%;
+            text-align: center;
+        }
+
+            .infoText2{
+            width: 650px;
+            height: auto;
+            font-size: 20px;
+            margin-right: 0%;
+            margin-top: 50px;
+            text-align: center;
+            }
+            .infoText {
+            width: 650px;
+            height: auto;
+            font-size: 20px;
+            margin-left: 0%;
+            text-align: center;
+            }
+        
+    
+    
+        .ePic {
+            position: relative;
+            height: 200px;
+            width: auto;
+        }
+
+        .eLogo {
+            height: 200px;
+            width: auto;
+        }
+
+        .etxt h1 {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 650px) {
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .landingPage {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .mPic {
+            position: relative;
+        }
+
+        .mLogo {
+            height: 200px;
+            width: auto;
+        }
+
+        .rolex1,
+        .rolex2 {
+            opacity: 0;
+            animation: none;
+        }
+        .infoText3,  .infoText {
+            width: 650px;
+            height: auto;
+            font-size: 20px;
+            margin-left: 0%;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+            .infoText4, .infoText2{
+            width: 650px;
+            height: auto;
+            font-size: 20px;
+            margin-right: 0%;
+            margin-top: 50px;
+            text-align: center;
+
+
+        /* .text {
+            overflow: hidden;
+            position: relative;
+            width: 400px;
+            height: auto;
+        }
+
+        .text h1 {
+            font-size: 35px;
+            margin-bottom: 100px;
+        } */
+
+
+        .ePic {
+            position: relative;
+        }
+
+        .eLogo {
+            height: 50px;
+            width: auto;
+        }
+
+        .etxt h1 {
+            opacity: 0;
+        }
+    }
+}
+</style>
+
+<body>
+    <main>
+        <section>
+            <div id="home" class="section" data-label="Home">
+                <div class="landingPage">
+                    <video autoplay muted loop plays-inline class="bgVideo">
+                        <source src="bgvid.mp4">
+                    </video>
+
+                    <div class="mPic">
+                        <a href="https://imgur.com/0L9HLPy"><img src="https://i.imgur.com/0L9HLPy.png" title="source: imgur.com" class="mLogo" /></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section2">
+            <div id="about" class="section" data-label="About Us">
+                <div class="scrollable-section">
+                    <div class="info">
+                        <div class="infoText">
+                            <div class="textt" >
+                            Rolex watches are the epitome of luxury and precision. Established in 1905, Rolex has become
+                            a
+                            symbol of success and refined taste.
+                            Crafted with unparalleled attention to detail, Rolex timepieces are renowned for their
+                            robustness,
+                            precision movements, and elegant designs.
+                            From the iconic Submariner built for underwater exploration to the classic Datejust known
+                            for
+                            its
+                            timeless appeal,
+                            each Rolex watch is a masterful blend of style and functionality. Embodying a legacy of
+                            innovation,
+                            Rolex continues to set the standard for high-end watchmaking, making each watch a symbol of
+                            prestige
+                            and enduring excellence
+                        </div>
+                            <div class="vid-container">
+                                <video autoplay muted loop plays-inline width="500" height="auto">
+                                    <source src="vid.mp4"  class="vid1">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infoText2">
+                        <div class="textt">
+                        Rolex watches are the epitome of luxury and precision. Established in 1905, Rolex has become a
+                        symbol of success and refined taste.
+                        Crafted with unparalleled attention to detail, Rolex timepieces are renowned for their
+                        robustness,
+                        precision movements, and elegant designs.
+                        From the iconic Submariner built for underwater exploration to the classic Datejust known for
+                        its
+                        timeless appeal,
+                        each Rolex watch is a masterful blend of style and functionality. Embodying a legacy of
+                        innovation,
+                        Rolex continues to set the standard for high-end watchmaking, making each watch a symbol of
+                        prestige
+                        and enduring excellence
+                    </div>
+                        <div class="image-container">
+                            <div class="rolex1">
+                                <img src="rolex2.png" class="r2" />
+                            </div>
+                            <div class="rolex2">
+                                <img src="rolex3.png" class="r3" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infoText3">
+                        <div class="textt">
+                        Rolex watches are the epitome of luxury and precision. Established in 1905, Rolex has become a
+                        symbol of success and refined taste.
+                        Crafted with unparalleled attention to detail, Rolex timepieces are renowned for their
+                        robustness,
+                        precision movements, and elegant designs.
+                        From the iconic Submariner built for underwater exploration to the classic Datejust known for
+                        its
+                        timeless appeal,
+                        each Rolex watch is a masterful blend of style and functionality. Embodying a legacy of
+                        innovation,
+                        Rolex continues to set the standard for high-end watchmaking, making each watch a symbol of
+                        prestige
+                        and enduring excellence
+                    </div>
+                        <div class="vid-container2">
+                            <video autoplay muted loop plays-inline width="500" height="auto">
+                                <source src="vid.mp4"  class="vid2">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="infoText4">
+                        <div class="textt">
+                        Rolex watches are the epitome of luxury and precision. Established in 1905, Rolex has become a
+                        symbol of success and refined taste.
+                        Crafted with unparalleled attention to detail, Rolex timepieces are renowned for their
+                        robustness,
+                        precision movements, and elegant designs.
+                        From the iconic Submariner built for underwater exploration to the classic Datejust known for
+                        its
+                        timeless appeal,
+                        each Rolex watch is a masterful blend of style and functionality. Embodying a legacy of
+                        innovation,
+                        Rolex continues to set the standard for high-end watchmaking, making each watch a symbol of
+                        prestige
+                        and enduring excellence
+                    </div>
+                        <div class="image-container2">
+                            <div class="rolex3">
+                                <img src="rolex2.png" class="r3" />
+                            </div>
+                            <div class="rolex4">
+                                <img src="rolex3.png" class="r4" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="products">
+            <div id="product" class="section" data-label="Product">
+                <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+                    <img class="image" src="img1.jpg" draggable="false" />
+                    <img class="image" src="img2.jpg" draggable="false" />
+                    <img class="image" src="img3.jpg" draggable="false" />
+                    <img class="image" src="img4.jpg" draggable="false" />
+                    <img class="image" src="img5.jpg" draggable="false" />
+                    <img class="image" src="img6.jpg" draggable="false" />
+                    <img class="image" src="img7.jpg" draggable="false" />
+                    <img class="image" src="img7.jpg" draggable="false" />
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div id="buy-now" class="section" data-label="Buy Now">
+                <div class="endPage">
+                    <video autoplay muted loop plays-inline class="endVid">
+                        <source src="bgvid.mp4">
+                    </video>
+                    <div class="ePic">
+                        <img src="Rolexlogo.png" class="eLogo">
+                    </div>
+                    <div class="etxt">
+                        <h1>Where Time is of the Essence</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+
+</html>
+
+<script>
+     document.addEventListener("DOMContentLoaded", function () {
+            function handleIntersection(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }
+
+            const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
+
+            const animatedSection = document.getElementById("animatedSection");
+
+            observer.observe(animatedSection);
+        });
+        
+    function activateNavigation() {
+        const sections = document.querySelectorAll(".section");
+        const navContainer = document.createElement("nav");
+        const navItems = Array.from(sections).map((section, index) => {
+            return `
+            <div class="nav-item" data-for-section="${section.id}" data-section-index="${index}">
+                <a href="#${section.id}" class="nav-link"></a>
+                <span class="nav-label">${section.dataset.label}</span>
+            </div>
+        `;
+        });
+
+        navContainer.classList.add("nav");
+        navContainer.innerHTML = navItems.join("");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                document.querySelectorAll(".nav-link").forEach((navLink) => {
+                    navLink.classList.remove("nav-link-selected");
+                });
+
+                const visibleSection = entries.find((entry) => entry.isIntersecting);
+
+                if (visibleSection) {
+                    const index = Array.from(sections).indexOf(visibleSection.target);
+                    document
+                        .querySelector(`.nav-item[data-section-index="${index}"] .nav-link`)
+                        .classList.add("nav-link-selected");
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        document.body.appendChild(navContainer);
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll(".nav-link");
+
+            links.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    const index = this.parentNode.dataset.sectionIndex;
+                    const targetSection = sections[index];
+
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+        });
+    }
+
+    activateNavigation();
+
+    const track = document.getElementById("image-track");
+
+    const handleOnDown = e => {
+        track.dataset.mouseDownAt = e.clientX || e.touches[0].clientX;
+    };
+
+    const handleOnUp = () => {
+        track.dataset.mouseDownAt = "0";
+        track.dataset.prevPercentage = track.dataset.percentage;
+    };
+
+    const handleOnMove = e => {
+        if (track.dataset.mouseDownAt === "0") return;
+
+        const mouseDelta = parseFloat(track.dataset.mouseDownAt) - (e.clientX || e.touches[0].clientX),
+            maxDelta = window.innerWidth / 2;
+
+        const percentage = (mouseDelta / maxDelta) * -100,
+            nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
+            nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, -10), -90);
+
+        track.dataset.percentage = nextPercentage;
+
+        track.animate({
+            transform: `translate(${nextPercentage}%, -50%)`
+        }, { duration: 1200, fill: "forwards" });
+
+        for (const image of track.getElementsByClassName("image")) {
+            image.animate({
+                objectPosition: `${100 + nextPercentage}% center`
+            }, { duration: 1200, fill: "forwards" });
+        }
+    }
+
+    window.onmousedown = e => handleOnDown(e);
+    window.ontouchstart = e => handleOnDown(e.touches[0]);
+    window.onmouseup = e => handleOnUp(e);
+    window.ontouchend = e => handleOnUp(e.touches[0]);
+    window.onmousemove = e => handleOnMove(e);
+    window.ontouchmove = e => handleOnMove(e.touches[0]);
+
+</script>
